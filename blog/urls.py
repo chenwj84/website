@@ -5,4 +5,5 @@ from blog import views
 
 urlpatterns = [
     url(r'^$', views.archive),
+    url(r'^create/', views.create_blogpost),
 ]

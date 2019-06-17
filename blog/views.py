@@ -2,15 +2,23 @@
 from __future__ import unicode_literals
 
 from datetime import datetime
-from django.http import HttpResponse
-from django.template import loader, Context
-from django.shortcuts import render,render_to_response
-from blog.models import BlogPost
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from blog.models import BlogPost, BlogPostForm
 
 # Create your views here.
 
 def archive(request):
     posts = BlogPost.objects.all()
-    t = loader.get_template('archive.html')
-    c = {'posts': posts}
-    return HttpResponse(t.render(c))
+    return render(request, 'archive.html', {'posts': posts,
+        'form':BlogPostForm()}, RequestContext(request))
+
+def create_blogpost(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.timestamp=datetime.now()
+            post.save()
+    return HttpResponseRedirect('/blog/')
