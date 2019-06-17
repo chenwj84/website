@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from datetime import datetime
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from blog.models import BlogPost, BlogPostForm
@@ -11,7 +11,7 @@ from blog.models import BlogPost, BlogPostForm
 
 def archive(request):
     posts = BlogPost.objects.all()
-    return render(request, 'archive.html', {'posts': posts,
+    return render(request, 'index.html', {'posts': posts,
         'form':BlogPostForm()}, RequestContext(request))
 
 def create_blogpost(request):
