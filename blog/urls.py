@@ -6,4 +6,5 @@ from blog import views
 urlpatterns = [
     url(r'^$', views.archive),
     url(r'^create/', views.create_blogpost),
+    url(r'^sendmail/', views.send_view_email),
 ]

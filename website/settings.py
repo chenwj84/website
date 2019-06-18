@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'poster',
+    'approver',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +124,10 @@ STATIC_URL = '/static/'
 
 TWEET_APPROVER_EMAIL = 'chenwj84@163.com'
 
-EMAIL_HOST = 'stmp.163.com'
+EMAIL_HOST = 'smtp.163.com'
 EMAIL_HOST_USER = 'x2qctest1'
 EMAIL_HOST_PASSWORD = 'test1234'
 DEFAULT_FROM_EMAIL = 'x2qctest1@163.com'
 SERVER_EMAIL = 'x2qctest1@163.com'
+
+TO_EMAIL_LIST = ['chenwj84@163.com', 'x2qctest1@163.com']
