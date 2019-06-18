@@ -119,3 +119,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TWEET_APPROVER_EMAIL = 'chenwj84@163.com'
+
+EMAIL_HOST = 'stmp.163.com'
+EMAIL_HOST_USER = 'x2qctest1'
+EMAIL_HOST_PASSWORD = 'test1234'
+DEFAULT_FROM_EMAIL = 'x2qctest1@163.com'
+SERVER_EMAIL = 'x2qctest1@163.com'
